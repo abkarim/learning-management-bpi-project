@@ -33,7 +33,12 @@ export default function Login() {
       email: "admin@lms.com",
       password: "password",
       role: "admin",
-      permissions: ["manage_users", "create_course", "delete_course", "view_reports"],
+      permissions: [
+        "manage_users",
+        "create_course",
+        "delete_course",
+        "view_reports",
+      ],
     },
     Instructor: {
       email: "instructor@lms.com",
@@ -86,7 +91,7 @@ export default function Login() {
 
       const userData = { name, email, role: matchedRole, lowBandwidth };
 
-      // LocalStorage-e user and permissions save kore rakha jonno 
+      // LocalStorage-e user and permissions save kore rakha jonno
       localStorage.setItem("user", JSON.stringify(userData));
       localStorage.setItem("permissions", JSON.stringify(permissions));
 
@@ -98,7 +103,9 @@ export default function Login() {
       } else if (matchedRole === "instructor") {
         navigate("/instructor");
       } else {
-        navigate("/student");
+        const onboardingDone =
+          localStorage.getItem("onboardingDone") === "true";
+        navigate(onboardingDone ? "/student" : "/student/onboarding");
       }
     } catch (error) {
       toast.error("Something went wrong");
@@ -124,7 +131,12 @@ export default function Login() {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div className="space-y-1.5">
-            <Label htmlFor="email" className="text-xs font-semibold uppercase text-gray-600">Email Address</Label>
+            <Label
+              htmlFor="email"
+              className="text-xs font-semibold uppercase text-gray-600"
+            >
+              Email Address
+            </Label>
             <div className="relative">
               <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
               <Input
@@ -140,7 +152,12 @@ export default function Login() {
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="password" className="text-xs font-semibold uppercase text-gray-600">Password</Label>
+            <Label
+              htmlFor="password"
+              className="text-xs font-semibold uppercase text-gray-600"
+            >
+              Password
+            </Label>
             <div className="relative">
               <LockKeyhole className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
               <Input
@@ -157,7 +174,11 @@ export default function Login() {
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600 cursor-pointer"
               >
-                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                {showPassword ? (
+                  <EyeOff className="h-4 w-4" />
+                ) : (
+                  <Eye className="h-4 w-4" />
+                )}
               </button>
             </div>
           </div>
@@ -165,12 +186,15 @@ export default function Login() {
           <div className="flex items-center justify-between rounded-xl bg-gray-50 p-3 border border-gray-100">
             <div className="flex items-center gap-2">
               <Wifi className="h-4 w-4 text-green-600" />
-              <Label htmlFor="bandwidth" className="text-sm font-medium text-gray-700 cursor-pointer">
+              <Label
+                htmlFor="bandwidth"
+                className="text-sm font-medium text-gray-700 cursor-pointer"
+              >
                 Low Bandwidth Mode
               </Label>
             </div>
             <Switch
-                className={"cursor-pointer"}
+              className={"cursor-pointer"}
               id="bandwidth"
               checked={lowBandwidth}
               onCheckedChange={setLowBandwidth}
@@ -211,14 +235,17 @@ export default function Login() {
             Demo Accounts:
           </p>
           <div className="bg-gray-50 p-3 rounded-xl border border-gray-100 space-y-1.5">
-            {(Object.keys(demoAccounts) as Array<keyof typeof demoAccounts>).map((roleKey) => (
+            {(
+              Object.keys(demoAccounts) as Array<keyof typeof demoAccounts>
+            ).map((roleKey) => (
               <button
                 key={roleKey}
                 type="button"
                 onClick={() => fillDemo(roleKey)}
                 className="block w-full text-left text-blue-600 hover:underline font-medium truncate"
               >
-                • <strong className="text-gray-700">{roleKey}:</strong> {demoAccounts[roleKey].email} / {demoAccounts[roleKey].password}
+                • <strong className="text-gray-700">{roleKey}:</strong>{" "}
+                {demoAccounts[roleKey].email} / {demoAccounts[roleKey].password}
               </button>
             ))}
           </div>

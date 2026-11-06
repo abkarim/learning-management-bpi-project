@@ -1,5 +1,10 @@
+import Login from "./components/Login/Login";
+
 function App(): React.JSX.Element {
-    return <h1>Hello</h1>;
+    return <>
+        <Login></Login>
+    
+    </>;
 }
 
 export default App;

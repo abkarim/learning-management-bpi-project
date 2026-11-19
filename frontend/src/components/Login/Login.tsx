@@ -108,7 +108,7 @@ export default function Login() {
         navigate(onboardingDone ? "/student" : "/student/onboarding");
       }
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error(`Something went wrong: ${String(error)}`);
     } finally {
       setLoading(false);
     }

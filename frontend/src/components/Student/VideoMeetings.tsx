@@ -158,7 +158,7 @@ export default function VideoMeetings() {
                 className="group relative overflow-hidden rounded-xl border bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-600/10"
               >
                 {/* upore slide kora gradient line */}
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500 transition-transform duration-500 group-hover:scale-x-100" />
 
                 <div className="flex items-start justify-between gap-3">
                   <h4 className="text-[17px] leading-snug text-gray-900 transition-colors group-hover:text-blue-700">

@@ -145,7 +145,7 @@ export default function StudentDashboard() {
         className="relative overflow-hidden rounded-3xl shadow-lg shadow-blue-600/20"
       >
         <div
-          className="sd-motion absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-[length:200%_200%]"
+          className="sd-motion absolute inset-0 bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600 bg-[length:200%_200%]"
           style={{ animation: "sd-gradient 10s ease infinite" }}
         />
         {/* floating bubbles */}
@@ -269,8 +269,8 @@ export default function StudentDashboard() {
                     <div
                       className={`sd-motion w-full rounded-t-lg transition-all duration-300 group-hover/bar:brightness-110 ${
                         isToday
-                          ? "bg-gradient-to-t from-purple-600 to-indigo-400"
-                          : "bg-gradient-to-t from-blue-500 to-blue-300"
+                          ? "bg-linear-to-t from-purple-600 to-indigo-400"
+                          : "bg-linear-to-t from-blue-500 to-blue-300"
                       }`}
                       style={{
                         height: mounted ? `${(w.h / maxHours) * 100}%` : "0%",
@@ -335,7 +335,7 @@ export default function StudentDashboard() {
           <h4 className="mb-6 font-medium text-gray-900">Quick Actions</h4>
           <div className="space-y-3">
             <Button
-              className="group h-14 w-full cursor-pointer justify-between rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 text-base text-white shadow-md shadow-blue-600/20 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-600/30"
+              className="group h-14 w-full cursor-pointer justify-between rounded-xl bg-linear-to-r from-blue-600 to-indigo-600 px-5 text-base text-white shadow-md shadow-blue-600/20 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-600/30"
               onClick={() => navigate("/student/courses")}
             >
               <span className="flex items-center gap-3">

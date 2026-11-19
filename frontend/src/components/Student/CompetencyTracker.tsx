@@ -186,7 +186,7 @@ export default function CompetencyTracker() {
       </p>
 
       {/* Overall banner */}
-      <div className="rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-8 py-7 text-white shadow-lg">
+      <div className="rounded-2xl bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600 px-8 py-7 text-white shadow-lg">
         <div className="flex items-start justify-between gap-4">
           <div>
             <h3 className="text-xl font-semibold">Overall Competency Progress</h3>
@@ -203,7 +203,7 @@ export default function CompetencyTracker() {
           >
             {/* cholte thaka shimmer */}
             <div
-              className="ct-shimmer absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-indigo-400/60 to-transparent"
+              className="ct-shimmer absolute inset-y-0 w-1/3 bg-linear-to-r from-transparent via-indigo-400/60 to-transparent"
               style={{ animation: "ct-shimmer 1.8s ease-in-out infinite" }}
             />
           </div>
@@ -239,7 +239,7 @@ export default function CompetencyTracker() {
             className="group relative cursor-pointer overflow-hidden rounded-xl border border-gray-200 bg-white p-7 shadow-sm outline-none transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-600/10 focus-visible:ring-2 focus-visible:ring-blue-500"
           >
             {/* hover-e upor theke halka blue glow */}
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-transform duration-300 group-hover:scale-x-100" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-linear-to-r from-blue-500 to-purple-500 transition-transform duration-300 group-hover:scale-x-100" />
 
             {/* Title */}
             <div className="flex items-start justify-between gap-4">
